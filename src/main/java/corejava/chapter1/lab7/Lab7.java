@@ -23,7 +23,7 @@ public class Lab7 {
     }
 
     public static int sumForUnsignedInt(int a, int b) {
-        if (a > 0 && b >= 0 || a >= 0 && b > 0) {
+        if (a > 0 && b > 0) {
             throw new ArithmeticException("[1] sum: > " + 2L * MAX);
         }
         if (a > 0 && b < 0 || a < 0 && b > 0) {
@@ -44,12 +44,12 @@ public class Lab7 {
 
     public static int multForUnsignedInt(int a, int b) {
 
-        if (a > 0 || b > 0) {
-            throw new ArithmeticException("mult: > " + 2L * MAX);
-        }
-
         if (a == -MAX || b == -MAX) {
             return -MAX;
+        }
+
+        if (a >= 0 || b >= 0) {
+            throw new ArithmeticException("mult: > " + 2L * MAX);
         }
 
         int result = a;
