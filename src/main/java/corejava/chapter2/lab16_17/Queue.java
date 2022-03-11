@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 public class Queue<T> {
 
 
-    private static class Iterator<T> {
+    public static class Iterator<T> {
         Node<T> ptr;
 
         Iterator(Node<T> first) {
@@ -24,6 +24,10 @@ public class Queue<T> {
             } else {
                 throw new NoSuchElementException("next = null");
             }
+        }
+
+        public T getInfo(){
+           return ptr.info;
         }
     }
 
