@@ -3,6 +3,34 @@ package corejava.chapter1.lab14;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * Данная программа проверяет не только внешний квадрат, а еще и все внутренние квадраты.<br>
+ * Пример:<br>
+ * <br>
+ * 1 2 3 47 23 5 2 <br>
+ * 1 2 4 5 7<br>
+ * 1 2 3 4 5 6 7 <br>
+ * 9 8 7 6 5 4 3 2 1 <br>
+ * <br>
+ * Программа выделяет данный квадрат:<br>
+ *  ____________<br>
+ * |1 2 3 47 23| 5 2<br>
+ * |1 2 4 5 7  |<br>
+ * |1 2 3 4 5  |6 7 <br>
+ * |9 8 7 6 5  |4 3 2 1<br>
+ * ------------<br>
+ * <br>
+ * После чего проверяет его и все внутренние квадраты, в том числе и <br>
+ * 47 23<br>
+ * 5  7<br>
+ * <br>
+ * 2 4<br>
+ * 2 3<br>
+ * <br>
+ * 4 5 7<br>
+ * 3 4 5<br>
+ * 7 6 5<br>
+ */
 public class Lab14 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
