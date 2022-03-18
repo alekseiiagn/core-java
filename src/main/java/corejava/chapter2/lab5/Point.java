@@ -6,7 +6,8 @@ package corejava.chapter2.lab5;
  * @author aleksejagnenkov
  * @version 1.0
  */
-public class Point {
+
+public final class Point {
     private final double x;
     private final double y;
 
