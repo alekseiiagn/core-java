@@ -3,7 +3,7 @@ package corejava.chapter2.lab10;
 import java.util.LinkedList;
 import java.util.List;
 
-//Можно, но актуально ли это? Массивы не ответственны за эти задачи.
+//Мы можем расширить ArrayList, но модифицировать его нельзя(SOLID). Да и вообще массивы не ответственны за эти задачи.
 public class Lab10 {
     public static void main(String[] args) {
 

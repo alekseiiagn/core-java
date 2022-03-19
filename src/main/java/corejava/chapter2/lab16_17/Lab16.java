@@ -9,19 +9,18 @@ public class Lab16 {
         queue.add("3");
         queue.add("4");
 
-        for(Queue.Iterator<String> it = queue.iterator(); it.hasNext(); it.next()){
-            System.out.println(it.getInfo());
+        System.out.println(queue.takeFirst());
+        System.out.println(queue);
+        queue.add("5");
+        System.out.println(queue);
+        System.out.println(queue.takeFirst());
+        System.out.println(queue);
+        queue.add("6");
+        System.out.println(queue);
+
+        Queue.Iterator<String> it = queue.iterator();
+        while (it.hasNext()){
+            System.out.println(it.next());
         }
-
-        System.out.println(queue.get());
-        System.out.println(queue);
-        queue.remove();
-        System.out.println(queue);
-        queue.remove();
-        System.out.println(queue);
-        queue.remove();
-        System.out.println(queue);
-
-
     }
 }

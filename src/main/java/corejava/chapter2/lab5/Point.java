@@ -3,11 +3,10 @@ package corejava.chapter2.lab5;
 /**
  * Класс точки для двумерной координатной оси
  *
- * @author aleksejagnenkov
+ * @author alekseiiagnenkov
  * @version 1.0
  */
-
-public final class Point {
+public class Point {
     private final double x;
     private final double y;
 

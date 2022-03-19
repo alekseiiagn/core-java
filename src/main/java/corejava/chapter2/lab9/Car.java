@@ -12,9 +12,9 @@ package corejava.chapter2.lab9;
  */
 
 public class Car {
+
     private double x;
     private double fuel;
-
     private final int maxFuel;
     private final double consumption;
 
@@ -50,23 +50,22 @@ public class Car {
         return consumption;
     }
 
-
-    private double spendFuel(double x) {
-        double spend = x / consumption;
-        if (fuel <= spend) {
+    public boolean move(double x) {
+        double length;
+        double spendFuel = x / consumption;
+        if (spendFuel < 0) {
+            spendFuel = -spendFuel;
+        }
+        if (fuel <= spendFuel) {
             double s = fuel * consumption;
             fuel = 0;
-            return s;
+            length = s;
         } else {
-            fuel -= spend;
-            return x;
+            fuel -= spendFuel;
+            length = x;
         }
-    }
-
-    public boolean addX(double x) {
-        double s = spendFuel(x);
-        this.x += s;
-        return s == x;
+        this.x += length;
+        return length == x;
     }
 
     public void addFuel(double fuel) {
@@ -75,7 +74,6 @@ public class Car {
         }
         if (fuel + this.fuel < 0)
             throw new RuntimeException("Fuel < 0!");
-
         this.fuel += fuel;
     }
 }

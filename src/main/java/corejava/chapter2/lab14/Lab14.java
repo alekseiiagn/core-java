@@ -4,6 +4,8 @@ public class Lab14 {
     public static void main(String[] args) {
         Network myFace = new Network();
         Network.Member fred = myFace.enroll("Fred");
+        Network.Member alice = myFace.enroll("Alice");
+        alice.leave();
         fred.leave();
     }
     /*

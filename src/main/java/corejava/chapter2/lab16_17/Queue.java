@@ -4,12 +4,13 @@ import java.util.NoSuchElementException;
 
 public class Queue<T> {
 
-
     public static class Iterator<T> {
         Node<T> ptr;
+        boolean firstNode;
 
         Iterator(Node<T> first) {
             ptr = first;
+            firstNode = true;
         }
 
         boolean hasNext() {
@@ -17,6 +18,10 @@ public class Queue<T> {
         }
 
         T next() {
+            if (firstNode) {
+                firstNode = false;
+                return ptr.info;
+            }
             if (hasNext()) {
                 T res = ptr.next.info;
                 ptr = ptr.next;
@@ -26,8 +31,8 @@ public class Queue<T> {
             }
         }
 
-        public T getInfo(){
-           return ptr.info;
+        public T current() {
+            return ptr.info;
         }
     }
 
@@ -44,7 +49,7 @@ public class Queue<T> {
 
         @Override
         public String toString() {
-            return " Node{" +
+            return " {" +
                     " info:" + info +
                     " }";
         }
@@ -71,13 +76,13 @@ public class Queue<T> {
         size++;
     }
 
-    public Node<T> get() {
+    public T takeFirst() {
         if (size > 0) {
             Node<T> it = first;
             first = first.next;
             first.prev = null;
             size--;
-            return it;
+            return it.info;
         }
         return null;
     }
@@ -88,12 +93,12 @@ public class Queue<T> {
         last = null;
     }
 
-    public Node<T> remove() {
+    public T takeLast() {
         if (size > 0) {
             Node<T> it = last;
             last = last.prev;
             size--;
-            return it;
+            return it.info;
         }
         return null;
     }

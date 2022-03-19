@@ -5,7 +5,7 @@ public class Lab9 {
         Car car = new Car(60, 10, 45);
         car.addFuel(15);
         System.out.println(car.getFuel());
-        car.addX(1000);
+        car.move(-1000);
         System.out.println(car.getFuel());
         System.out.println(car.getX());
     }
