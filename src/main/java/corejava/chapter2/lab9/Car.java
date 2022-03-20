@@ -64,6 +64,9 @@ public class Car {
             fuel -= spendFuel;
             length = x;
         }
+        if(x<0){
+            length=-length;
+        }
         this.x += length;
         return length == x;
     }
