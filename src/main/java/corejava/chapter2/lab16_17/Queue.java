@@ -4,22 +4,33 @@ import java.util.NoSuchElementException;
 
 public class Queue<T> {
 
-    public static class Iterator<T> {
-        Node<T> ptr;
-        boolean firstNode;
+    public class Iterator {
+        private Node<T> ptr;
+        private boolean flagFirst;
 
         Iterator(Node<T> first) {
             ptr = first;
-            firstNode = true;
+            flagFirst = true;
         }
 
         boolean hasNext() {
             return ptr.next != null;
         }
 
+        T remove() {
+            if (ptr.prev == null) {
+                ptr = ptr.next;
+                return Queue.this.remove();
+            }
+            Node<T> del = ptr;
+            ptr.prev.next = del.next;
+            Queue.this.size--;
+            return del.info;
+        }
+
         T next() {
-            if (firstNode) {
-                firstNode = false;
+            if (flagFirst) {
+                flagFirst = false;
                 return ptr.info;
             }
             if (hasNext()) {
@@ -49,9 +60,7 @@ public class Queue<T> {
 
         @Override
         public String toString() {
-            return " {" +
-                    " info:" + info +
-                    " }";
+            return info.toString();
         }
     }
 
@@ -59,8 +68,8 @@ public class Queue<T> {
     private Node<T> first = null;
     private Node<T> last = null;
 
-    public Iterator<T> iterator() {
-        return new Iterator<T>(first);
+    public Iterator iterator() {
+        return new Iterator(first);
     }
 
     public void add(T info) {
@@ -76,7 +85,7 @@ public class Queue<T> {
         size++;
     }
 
-    public T takeFirst() {
+    public T remove() {
         if (size > 0) {
             Node<T> it = first;
             first = first.next;
@@ -93,7 +102,7 @@ public class Queue<T> {
         last = null;
     }
 
-    public T takeLast() {
+/*    public T takeLast() {
         if (size > 0) {
             Node<T> it = last;
             last = last.prev;
@@ -101,6 +110,10 @@ public class Queue<T> {
             return it.info;
         }
         return null;
+    }*/
+
+    public int size() {
+        return size;
     }
 
     @Override
@@ -108,7 +121,14 @@ public class Queue<T> {
         StringBuilder stringBuilder = new StringBuilder("[");
         Node<T> it = first;
         for (int i = 0; i < size; i++) {
-            stringBuilder.append(it.toString());
+            if (it.info == null) {
+                stringBuilder.append("null");
+            } else {
+                stringBuilder.append(it);
+            }
+            if (i < size - 1) {
+                stringBuilder.append(", ");
+            }
             it = it.next;
         }
         stringBuilder.append("]");
