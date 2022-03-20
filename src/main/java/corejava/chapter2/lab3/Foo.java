@@ -10,11 +10,6 @@ public class Foo {
         number1 = 0;
         number2 = 0;
         number3 = 0;
-        //хотя им и так 0 присвоится
-    }
-
-    public void getGreeting() {
-        System.out.println(str);
     }
 
     public void getNumber1InInteger(Foo1 foo1) {
