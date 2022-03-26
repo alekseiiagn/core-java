@@ -5,37 +5,35 @@ import java.util.NoSuchElementException;
 public class Queue<T> {
 
     public class Iterator {
+        private Node<T> next;
         private Node<T> ptr;
-        private boolean flagFirst;
 
         Iterator(Node<T> first) {
-            ptr = first;
-            flagFirst = true;
+            ptr = null;
+            next = first;
         }
 
         boolean hasNext() {
-            return ptr.next != null;
+            return next != null;
         }
 
         T remove() {
             if (ptr.prev == null) {
-                ptr = ptr.next;
+                ptr = null;
                 return Queue.this.remove();
             }
             Node<T> del = ptr;
-            ptr.prev.next = del.next;
+            ptr.prev.next = next;
+            ptr = null;
             Queue.this.size--;
             return del.info;
         }
 
         T next() {
-            if (flagFirst) {
-                flagFirst = false;
-                return ptr.info;
-            }
             if (hasNext()) {
-                T res = ptr.next.info;
-                ptr = ptr.next;
+                T res = next.info;
+                ptr = next;
+                next = ptr.next;
                 return res;
             } else {
                 throw new NoSuchElementException("next = null");
@@ -89,7 +87,8 @@ public class Queue<T> {
         if (size > 0) {
             Node<T> it = first;
             first = first.next;
-            first.prev = null;
+            if (first != null)
+                first.prev = null;
             size--;
             return it.info;
         }
