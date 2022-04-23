@@ -4,11 +4,11 @@ import java.util.*;
 
 public class Lab7 {
 
-    //Вычислить O()
-    // //O(n!*n^2)?
+    //Вычислить O(n!*n)
     static void luckySort(List<String> strings, Comparator<String> comp) {
-        while (!isListSortASC(strings, comp)/*O(n)*/) {  //O(n!*n^2)
-            Collections.shuffle(strings);//O(n)
+        while (true) {  //O(n!)
+            if (isListSortASC(strings, comp)) { break; }//O(n)
+            Collections.shuffle(strings); //O(n)
         }
     }
 
