@@ -1,4 +1,4 @@
-package corejava.chapter3.additional;
+package corejava.chapter3.additional.Theory;
 
 public class MyNumber {
     private final int x;
@@ -16,7 +16,7 @@ public class MyNumber {
     }
 
     public boolean moreThenFive() {
-        return this.x > 10;
+        return this.x > 5;
     }
 
     @Override

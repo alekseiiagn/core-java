@@ -1,4 +1,4 @@
-package corejava.chapter3.additional;
+package corejava.chapter3.additional.Theory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,14 +34,14 @@ public class TheoryTask {
 
         System.out.println("Class::InstanceMethod");
         System.out.println(foo(MyNumber::moreThenFive));
-        System.out.println(foo(x -> x.moreThenFive()));
+        System.out.println(foo(o -> o.moreThenFive()));
 
         System.out.println("Object::InstanceMethod");
         MyNumber myNumber = new MyNumber(10);
         System.out.println(foo(myNumber::moreThen));
-        System.out.println(foo(x -> myNumber.moreThen(x)));
+        System.out.println(foo(o -> myNumber.moreThen(o)));
 
-        //3 различия интерфейса и анонимного класса
+        //3 различия лямбды и анонимного класса
         //для анонимного класса не обязательно переопределять все методы, и не всегда нужно, в свою очередь интерефейс создан для того, чтобы писать свою реализацию к методам
         //интерфейс не содержит состояния
         //интерфейс implement, а класс extend
