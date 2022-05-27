@@ -67,15 +67,13 @@ public class Lab9 {
 
     public static String toString(Object object) {
 
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder(object.getClass().getSimpleName()).append("={");
         String className = object.getClass().getSimpleName();
 
-        if (isBoxType(object.getClass())) {
-            if (object.getClass().isArray()) {
-                sb.append(Arrays.toString((Object[]) object));
-            } else {
-                sb.append(object);
-            }
+        if (object.getClass().isArray()) {
+            sb.append(Arrays.toString((Object[]) object));
+        } else if (isBoxType(object.getClass())) {
+            sb.append(object);
         } else {
             try {
                 for (Field f : object.getClass().getDeclaredFields()) {

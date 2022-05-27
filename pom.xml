@@ -21,22 +21,10 @@
     </build>
 
     <dependencies>
-
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
             <version>4.9.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>CoreJava</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 
