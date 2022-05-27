@@ -1,4 +1,3 @@
-/*
 package corejava.chapter3.lab6;
 
 import java.util.Iterator;
@@ -27,4 +26,3 @@ public class DigitSequence implements Iterator<Integer> {
     public void remove() {
     }
 }
-*/

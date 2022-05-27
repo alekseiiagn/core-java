@@ -1,5 +1,6 @@
 package corejava.chapter3.lab1_2;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -9,9 +10,13 @@ public class Lab1_2 {
 
     public static void main(String[] args) {
         Employee[] employees = createRandomListEmployees();
-        System.out.println("Average salary: " + Measurable.average(employees));
-        Employee employee = (Employee) (Measurable.largest(employees));
-        System.out.println("Employee's name with largest salary: " + employee.getName());
+        try {
+            System.out.println("Average salary: " + Measurable.average(employees));
+            Employee employee = (Employee) (Measurable.largest(employees));
+            System.out.println("Employee's name with largest salary: " + employee.getName());
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
     }
 
     public static Employee[] createRandomListEmployees() {
