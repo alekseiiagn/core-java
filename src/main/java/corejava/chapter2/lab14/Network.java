@@ -7,7 +7,7 @@ public class Network {
 
     public class Member {
         // Класс Member является внутренним для класса Network
-        private String name;
+        private final String name;
         private final List<Member> friends;
 
         public Member(String name) {

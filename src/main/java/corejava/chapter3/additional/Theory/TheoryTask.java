@@ -7,18 +7,20 @@ import java.util.function.Predicate;
 
 public class TheoryTask {
     public static Random random = new Random();
-    public static List<MyNumber> myNumberList = new ArrayList<>() {{
-        add(new MyNumber(random.nextInt(25)));
-        add(new MyNumber(random.nextInt(25)));
-        add(new MyNumber(random.nextInt(25)));
-        add(new MyNumber(random.nextInt(25)));
-        add(new MyNumber(random.nextInt(25)));
-        add(new MyNumber(random.nextInt(25)));
-        add(new MyNumber(random.nextInt(25)));
-        add(new MyNumber(random.nextInt(25)));
-        add(new MyNumber(random.nextInt(25)));
-        add(new MyNumber(random.nextInt(25)));
-    }};
+    public static List<MyNumber> myNumberList = new ArrayList<>();
+
+    static {
+        myNumberList.add(new MyNumber(random.nextInt(25)));
+        myNumberList.add(new MyNumber(random.nextInt(25)));
+        myNumberList.add(new MyNumber(random.nextInt(25)));
+        myNumberList.add(new MyNumber(random.nextInt(25)));
+        myNumberList.add(new MyNumber(random.nextInt(25)));
+        myNumberList.add(new MyNumber(random.nextInt(25)));
+        myNumberList.add(new MyNumber(random.nextInt(25)));
+        myNumberList.add(new MyNumber(random.nextInt(25)));
+        myNumberList.add(new MyNumber(random.nextInt(25)));
+        myNumberList.add(new MyNumber(random.nextInt(25)));
+    }
 
     public static List<MyNumber> foo(Predicate<MyNumber> filter) {
         return myNumberList.stream()

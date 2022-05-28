@@ -4,7 +4,6 @@ public class Foo {
     private int number1;
     private int number2;
     private int number3;
-    String str = "Hello!";
 
     Foo() {
         number1 = 0;
