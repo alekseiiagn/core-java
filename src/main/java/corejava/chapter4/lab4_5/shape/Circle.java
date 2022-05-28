@@ -6,6 +6,11 @@ public class Circle extends Shape{
 
     double radius;
 
+    public Circle(){
+        super(new Point(0,0));
+        radius = 1;
+    }
+
     public Circle(Point point, double radius) {
         super(point);
         this.radius = radius;

@@ -1,24 +1,30 @@
 package corejava.chapter4.lab7;
 
 public enum Color {
-    BLACK,
-    RED,
-    BLUE,
-    GREEN,
-    CYAN,
-    MAGENTA,
-    YELLOW,
-    WHITE;
+    BLACK(0, 0, 0),
+    RED(255, 0, 0),
+    BLUE(0, 0, 255),
+    GREEN(0, 255, 0),
 
-    public static Color getRed(){
-        return RED;
+    WHITE(255, 255, 255);
+
+    private int r;
+    private int g;
+    private int b;
+    Color(int r, int g, int b) {
+        this.r = r;
+        this.g = g;
+        this.b = b;
+    }
+    public int getRed() {
+        return r;
     }
 
-    public static Color getGreen(){
-        return GREEN;
+    public int getGreen() {
+        return g;
     }
 
-    public static Color getBlue(){
-        return BLUE;
+    public int getBlue() {
+        return b;
     }
 }
