@@ -31,6 +31,4 @@ public class Line extends Shape {
     public Line clone() {
         return new Line(point, pointTo);
     }
-
-
 }
