@@ -55,7 +55,11 @@ public final class DIServiceLoader<T> {
     }
 
     public T getBean(Class<?> beanClass) {
-        return serviceLoader.stream().filter(o -> o.get().getClass().equals(beanClass)).findFirst().get().get();
+        return serviceLoader.stream()
+                .filter(o -> o.get().getClass().equals(beanClass))
+                .findFirst()
+                .get()
+                .get();
     }
 
     public Iterator<T> iterator() {
