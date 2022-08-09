@@ -4,7 +4,7 @@ import liquibase.util.csv.CSVReader;
 import java.io.FileReader;
 
 public class Lab13 {
-    private static final String PATH = "src/main/resources/numbers.csv";
+    private static final String PATH = "src/main/resources/chapter2/lab13/numbers.csv";
 
     public static void main(String[] args) throws Exception {
         CSVReader reader = new CSVReader(new FileReader(PATH));
