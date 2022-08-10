@@ -31,8 +31,7 @@ public class Lab1 {
     public static double sumOfValues(String filename) throws FileNotFoundException, IllegalStateException, NumberFormatException {
         double sum = 0;
         List<Double> numbers = Lab1.readValues(filename);
-        for (double number :
-                numbers) {
+        for (double number : numbers) {
             sum += number;
         }
         return sum;
