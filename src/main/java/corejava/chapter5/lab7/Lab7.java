@@ -13,7 +13,7 @@ public class Lab7 {
     }
 
 
-/*    *//**
+    /**
      * Closes this scanner.
      *
      * <p> If this scanner has not yet been closed then if its underlying
@@ -25,7 +25,8 @@ public class Lab7 {
      * <p>Attempting to perform search operations after a scanner has
      * been closed will result in an {@link IllegalStateException}.
      *
-     *//*
+     */
+    /*
     public void close() {
         if (closed)
             return;
@@ -39,18 +40,20 @@ public class Lab7 {
         sourceClosed = true;
         source = null;
         closed = true;
-    }
+    }*/
 
-    *//**
+    /**
      * Returns the {@code IOException} last thrown by this
      * {@code Scanner}'s underlying {@code Readable}. This method
      * returns {@code null} if no such exception exists.
      *
      * @return the last exception thrown by this scanner's readable
-     *//*
+     */
+    /*
     public IOException ioException() {
         return lastException;
     }*/
+
 
 /*    // Tries to read more input. May block.
     private void readInput() {

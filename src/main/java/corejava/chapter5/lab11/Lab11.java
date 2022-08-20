@@ -25,6 +25,7 @@ public class Lab11 {
      * то я бы сделал проверку Object.requiredNonNull()
      */
     public static void main(String[] args) {
+
         Object obj = new Object();
 
         assert obj != null;
