@@ -7,15 +7,20 @@ public class GeneralLock {
 
     public static AutoCloseable lock() {
         REENTRANT_LOCK.lock();
-        return createAutoCloseable();
+        return createAutoCloseable(REENTRANT_LOCK);
     }
 
-    private static AutoCloseable createAutoCloseable() {
+    public static AutoCloseable lock(ReentrantLock reentrantLock) {
+        reentrantLock.lock();
+        return createAutoCloseable(reentrantLock);
+    }
+
+    private static AutoCloseable createAutoCloseable(ReentrantLock reentrantLock) {
         return new AutoCloseable() {
             public void close() {
                 try {
-                    if (REENTRANT_LOCK.isLocked())
-                        REENTRANT_LOCK.unlock();
+                    if (reentrantLock.isLocked())
+                        reentrantLock.unlock();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
