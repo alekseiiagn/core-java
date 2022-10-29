@@ -1,6 +1,6 @@
 package corejava.chapter6.lab15;
 
-import corejava.chapter6.ArrayUtils;
+import corejava.chapter6.Arrays;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +8,8 @@ import java.util.function.Function;
 
 public class Lab15 {
     public static void main(String[] args) {
-        List<Integer> numbers = ArrayUtils.createRandomArrayBySize(10);
-        List<String> strings = map(numbers, o -> o + "<->" + o);
+        List<Integer> numbers = Arrays.createRandomArrayBySize(10);
+        List<String> strings = map(numbers, o -> o + "^2 = " + o * o);
         System.out.println(strings);
     }
 

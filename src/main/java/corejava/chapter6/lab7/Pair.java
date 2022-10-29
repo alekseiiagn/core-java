@@ -13,12 +13,12 @@ public class Pair<E>{
         return first;
     }
 
-    public void setFirst(E first) {
-        this.first = first;
-    }
-
     public E getSecond() {
         return second;
+    }
+
+    public void setFirst(E first) {
+        this.first = first;
     }
 
     public void setSecond(E second) {

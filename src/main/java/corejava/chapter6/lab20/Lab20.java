@@ -1,4 +1,4 @@
-package corejava.chapter6.Lab20;
+package corejava.chapter6.lab20;
 
 public class Lab20 {
     public static void main(String[] args) {

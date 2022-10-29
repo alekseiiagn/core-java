@@ -1,21 +1,24 @@
 package corejava.chapter6.lab12_13;
 
-import corejava.chapter6.ArrayUtils;
+import corejava.chapter6.Arrays;
+import corejava.chapter6.Lists;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 public class Lab12_13 {
     public static void main(String[] args) {
-        List<Integer> elements = ArrayUtils.createRandomArrayBySize(13);
+        List<Integer> elements = Arrays.createRandomArrayBySize(13);
         System.out.println(elements);
 
-        List<Integer> result = ArrayUtils.createRandomArrayBySize(3);
-        System.out.println(result);
+        List<Integer> result1 = new ArrayList<>();
+        minmax(elements, Comparator.comparingInt(o -> o), result1);
+        System.out.println(result1);
 
-        minmax(elements, (o1, o2) -> o1 - o2, result);
-        System.out.println(result);
-
+        List<Integer> result2 = new ArrayList<>();
+        maxmin(elements, Comparator.comparingInt(o -> o), result2);
+        System.out.println(result2);
     }
 
     public static <T> void minmax(List<T> elements, Comparator<? super T> comp, List<? super T> result) {
@@ -45,8 +48,6 @@ public class Lab12_13 {
 
     public static <T> void maxmin(List<T> elements, Comparator<? super T> comp, List<? super T> result) {
         minmax(elements, comp, result);
-        //Lists.swapHelper(result, 0, 1); //Это вообще что такое?
+        Lists.swapHelper(result, 0, 1);
     }
-
-
 }

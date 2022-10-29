@@ -3,8 +3,8 @@ package corejava.chapter6.lab3;
 import java.util.Objects;
 
 public class Entry<K, V> {
-    K key;
-    V value;
+    private K key;
+    private V value;
 
     Entry(K key, V value) {
         this.key = key;
@@ -15,12 +15,12 @@ public class Entry<K, V> {
         return key;
     }
 
-    public void setKey(K key) {
-        this.key = key;
-    }
-
     public V getValue() {
         return value;
+    }
+
+    public void setKey(K key) {
+        this.key = key;
     }
 
     public void setValue(V value) {
@@ -32,8 +32,8 @@ public class Entry<K, V> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Entry<?, ?> entry = (Entry<?, ?>) o;
-        return Objects.equals(key, entry.key) &&
-                Objects.equals(value, entry.value);
+        return Objects.equals(key, entry.key)
+                && Objects.equals(value, entry.value);
     }
 
     @Override

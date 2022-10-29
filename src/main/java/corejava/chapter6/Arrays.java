@@ -7,13 +7,20 @@ import java.util.List;
 import java.util.Random;
 import java.util.function.IntFunction;
 
-public class ArrayUtils {
+public class Arrays {
 
     private static final int MIN_NUMBER = 0;
     private static final int MAX_NUMBER = 20;
     private static final Random random = new Random();
 
-    public static <E extends Number & Comparable<? super E>> List<E> createRandomArrayBySize(int count) {
+    public static <T> T[] swap(int i, int j, T... values) {
+        T temp = values[i];
+        values[i] = values[j];
+        values[j] = temp;
+        return values;
+    }
+
+    public static <E extends Comparable<? super E>> List<E> createRandomArrayBySize(int count) {
         List<E> out = new ArrayList<>();
         for (int i = 0; i < count; i++) {
             Number number = random.nextInt(MIN_NUMBER, MAX_NUMBER);
@@ -27,7 +34,7 @@ public class ArrayUtils {
     }
 
 
-    public static <E extends Number & Comparable<? super E>> E max(List<E> list) {
+    public static <E extends Comparable<? super E>> E max(List<E> list) {
         E max = list.get(0);
         for (int i = 1; i < list.size(); i++) {
             if (max.compareTo(list.get(i)) < 0) {
@@ -37,7 +44,7 @@ public class ArrayUtils {
         return max;
     }
 
-    public static <E extends Number & Comparable<? super E>> E min(List<E> list) {
+    public static <E extends Comparable<? super E>> E min(List<E> list) {
         E min = list.get(0);
         for (int i = 1; i < list.size(); i++) {
             if (min.compareTo(list.get(i)) > 0) {
@@ -47,7 +54,7 @@ public class ArrayUtils {
         return min;
     }
 
-    public static <E extends Number & Comparable<? super E>> Pair<E> minMax(List<E> list) {
+    public static <E extends Comparable<? super E>> Pair<E> minMax(List<E> list) {
         return new Pair<>(min(list), max(list));
     }
 
@@ -55,5 +62,10 @@ public class ArrayUtils {
         T[] result = constr.apply(n);
         for (int i = 0; i < n; i++) result[i] = obj;
         return result;
+    }
+
+    @SafeVarargs
+    public static <T> T[] construct(int size, T... template) {
+        return java.util.Arrays.copyOf(template, size);
     }
 }

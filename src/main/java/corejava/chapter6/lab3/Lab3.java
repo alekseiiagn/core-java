@@ -16,7 +16,6 @@ public class Lab3 {
     }
 
     private static Table<Integer, Integer> createRandomTableBySize(int count) {
-
         Table<Integer, Integer> table = new Table<>();
         for (int i = 0; i < count; i++) {
             table.add(i, random.nextInt(MIN_NUMBER, MAX_NUMBER));

@@ -1,6 +1,5 @@
 package corejava.chapter6.lab1;
 
-
 import java.util.ArrayList;
 import java.util.List;
 

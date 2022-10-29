@@ -1,14 +1,14 @@
 package corejava.chapter6.lab3;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Table<K, V> {
 
-    private List<Entry<K, V>> list;
+    private final List<Entry<K, V>> list;
 
     Table() {
-        list = new ArrayList<>();
+        list = new LinkedList<>();
     }
 
     public void add(K key, V value) {
