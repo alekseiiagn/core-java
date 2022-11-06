@@ -1,15 +1,15 @@
 package corejava.chapter6.lab19;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Lab19 {
-    //todo нельзя, почему?
     public static void main(String[] args) {
-        ArrayList<Integer> list = repeat(10, 10);
-        //Нельзя, потому что list хранит внутри объекты в виде Object[]. Это поле private.
+        List<Integer> list = repeat(10, 10);
 
-        //Если вызвать list.toArray(), то внутри метод использует getClass(),
-        //потому что ему нужно понять во что кастить Object[]
+        Integer[] array = list.toArray(new Integer[0]);
+        System.out.println(Arrays.toString(array));
     }
 
     public static <T> ArrayList<T> repeat(int n, T obj) {

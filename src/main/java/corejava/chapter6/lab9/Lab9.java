@@ -14,6 +14,5 @@ public class Lab9 {
         Pair<Integer> pair = Arrays.firstLast(list);
         System.out.println(pair.getFirst());
         System.out.println(pair.getSecond());
-
     }
 }

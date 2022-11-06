@@ -1,6 +1,7 @@
 package corejava.chapter6.lab25;
 
-import corejava.chapter6.Arrays;
+import corejava.chapter6.additional.TypeForSuper;
+import corejava.chapter6.lab12_13.Lab12_13;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -10,8 +11,8 @@ import java.lang.reflect.TypeVariable;
 public class Lab25 {
 
     public static void main(String[] args) {
-        String declaration = getDeclarationMethodByClassAndName(Arrays.class, "repeat");
-        System.out.println(declaration);
+        System.out.println(getDeclarationMethodByClassAndName(TypeForSuper.class, "typeForSuper"));
+        System.out.println(getDeclarationMethodByClassAndName(Lab12_13.class, "minmax"));
     }
 
     private static String getDeclarationMethodByClassAndName(Class<?> cl, String methodName) {
@@ -43,7 +44,18 @@ public class Lab25 {
     }
 
     private static String getGenericTypes(TypeVariable<Method>[] genericTypes) {
-        return "<" + arrayToString(genericTypes) + ">";
+        StringBuilder sb = new StringBuilder("<");
+        if (genericTypes.length > 0) {
+            sb.append(toRightSite(genericTypes, 0));
+        }
+        for (int i = 1; i < genericTypes.length; i++) {
+            sb.append(", ").append(toRightSite(genericTypes, i));
+        }
+        return sb.append(">").toString();
+    }
+
+    private static String toRightSite(TypeVariable<Method>[] genericTypes, int x) {
+        return genericTypes[x].getBounds()[0].getTypeName();
     }
 
     private static String getParams(Type[] genericTypes) {
