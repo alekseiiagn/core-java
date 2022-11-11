@@ -1,2 +1,5 @@
 # Project exclude paths
 /target/
+/src/main/java/leetcode/
+/src/main/java/test/
+/src/main/java/yandex/
