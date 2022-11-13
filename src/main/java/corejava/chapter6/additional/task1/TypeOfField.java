@@ -1,4 +1,4 @@
-package corejava.chapter6.additional.task;
+package corejava.chapter6.additional.task1;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
