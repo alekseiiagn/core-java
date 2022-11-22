@@ -8,7 +8,7 @@ import java.util.ServiceLoader;
 
 public final class DIServiceLoader<T> {
 
-    private static final String PATH = "src/main/java/corejava/chapter4/additional/META-INF/services/";
+    private static final String PATH = "src/main/resources/chapter4/META-INF/services/";
     String name;
     ServiceLoader<T> serviceLoader;
     Map<String, T> beans;

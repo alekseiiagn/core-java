@@ -5,10 +5,6 @@ import corejava.chapter4.additional.message.Message;
 import corejava.chapter4.additional.operation.Mult;
 import corejava.chapter4.additional.operation.Operation;
 
-/**
- * Код рабочий, но у меня не робит из-за проблем с maven(проверял в отдельном проекте)
- */
-
 public class Task {
     public static void main(String[] args) {
         try {
@@ -20,10 +16,11 @@ public class Task {
 
             DIServiceLoader<Operation> operationDI = DIServiceLoader.load(Operation.class);
             System.out.println(operationDI.getBean("+").getOperation(3, 5));
+            System.out.println(operationDI.getBean("+").getOperation(3, 5));
             System.out.println(operationDI.getBean("*").getOperation(3, 5));
             System.out.println(operationDI.getBean(Mult.class).getOperation(3, 5));
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            System.err.println(e);
         }
     }
 }

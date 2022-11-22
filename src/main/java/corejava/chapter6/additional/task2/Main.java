@@ -35,12 +35,12 @@ public class Main {
     }
 
     //Никто
-    public static int test3(C<?> c, String o) {
+    public static int test31(C<?> c, String o) {
         return c.call4(o);
     }
 
     //Producer
-    public static <T> T test3(C<? extends T> c, int i) {
+    public static <T> T test32(C<? extends T> c, int i) {
         return c.call3(i);
     }
 }

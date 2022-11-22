@@ -22,7 +22,7 @@ public class Lab6 {
         System.out.println(in);
     }
 
-    private static List<Integer> createRandomArrayBySize(int count) {
+    public static List<Integer> createRandomArrayBySize(int count) {
         List<Integer> out = new ArrayList<>();
         for (int i = 0; i < count; i++) {
             out.add(random.nextInt(MIN_NUMBER, MAX_NUMBER));
