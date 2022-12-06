@@ -27,7 +27,6 @@ public class Lab1_2_3 {
     }
 
     //task2
-    //TODO не пон, но пускай будет так
     private static double sumOfValuesFromFile(String filename) throws FileNotFoundException, IllegalStateException, NumberFormatException {
         List<Double> numbers = Lab1_2_3.readValuesFromFile(filename);
         return calculateSumOfNumbers(numbers);

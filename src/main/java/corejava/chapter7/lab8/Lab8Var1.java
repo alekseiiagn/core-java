@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Lab8 {
+public class Lab8Var1 {
 
     public static void main(String[] args) {
         try {
