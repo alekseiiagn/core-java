@@ -7,11 +7,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Lab4 {
-
-    /**
-     * ОЛО, НЕ ДЕЛАЙ СУММУ РАВНОЙ -1
-     */
-    private static final int ERROR = -1;
+    private static final int ERROR = 1;
+    private static final int GOOD = 0;
+    private static double result = 0;
     private static final String FILE_PATH_TO_CORRECTED_DATA = "src/main/resources/chapter5/lab1/correctedData.txt";
     private static final String FILE_PATH_TO_UNCORRECTED_DATA = "src/main/resources/chapter5/lab1/uncorrectedData.txt";
 
@@ -19,44 +17,45 @@ public class Lab4 {
         printSumOfValuesFromFile1(FILE_PATH_TO_CORRECTED_DATA);
     }
 
-    public static List<Double> readValuesFromFile(String filename) {
-        try (Scanner scanner = new Scanner(new File(filename))) {
-            return readValues(scanner);
-        } catch (FileNotFoundException | NumberFormatException | IllegalStateException e) {
-            return null;
+    public static void printSumOfValuesFromFile1(String filename) {
+        if (sumOfValuesFromFile(filename) == ERROR) {
+            System.out.println("Произошла ошибка");
+        } else {
+            System.out.println("Ответ: " + result);
         }
-    }
-
-    private static List<Double> readValues(Scanner scanner) {
-        List<Double> result = new ArrayList<>();
-        while (scanner.hasNext()) {
-            result.add(Double.parseDouble(scanner.next()));
-        }
-        return result;
     }
 
     public static double sumOfValuesFromFile(String filename) {
-        List<Double> numbers = Lab4.readValuesFromFile(filename);
-        if (numbers == null) {
+        List<Double> numbers = new ArrayList<>();
+        if (readValuesFromFile(filename, numbers) == ERROR) {
             return ERROR;
         }
         return calculateSumOfNumbers(numbers);
     }
 
-    private static double calculateSumOfNumbers(List<Double> numbers) {
-        double sum = 0;
-        for (double number : numbers) {
-            sum += number;
+    public static int readValuesFromFile(String filename, List<Double> numbers) {
+        try (Scanner scanner = new Scanner(new File(filename))) {
+            return readValues(scanner, numbers);
+        } catch (FileNotFoundException | NumberFormatException | IllegalStateException e) {
+            return ERROR;
         }
-        return sum;
     }
 
-    public static void printSumOfValuesFromFile1(String filename) {
-        double res = sumOfValuesFromFile(filename);
-        if (res == ERROR) {
-            System.out.println("Произошла ошибка");
-        } else {
-            System.out.println("Ответ: " + res);
+    private static int readValues(Scanner scanner, List<Double> numbers) {
+        while (scanner.hasNext()) {
+            numbers.add(Double.parseDouble(scanner.next()));
         }
+        return GOOD;
+    }
+
+    private static int calculateSumOfNumbers(List<Double> numbers) {
+        double lastSum = 0;
+        for (double number : numbers) {
+            result += number;
+            if(lastSum > result){
+                return ERROR;
+            }
+        }
+        return GOOD;
     }
 }

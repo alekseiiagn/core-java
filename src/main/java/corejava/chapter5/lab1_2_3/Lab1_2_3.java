@@ -34,8 +34,12 @@ public class Lab1_2_3 {
 
     private static double calculateSumOfNumbers(List<Double> numbers) {
         double sum = 0;
+        double lastSum = 0;
         for (double number : numbers) {
             sum += number;
+            if (lastSum > sum) {
+                throw new RuntimeException("Sum of values > Double.MAX");
+            }
         }
         return sum;
     }
@@ -53,6 +57,9 @@ public class Lab1_2_3 {
         } catch (IllegalStateException e) {
             e.printStackTrace();
             System.err.println(e + " -------> File closing error!");
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+            System.err.println(e + " -------> Sum of values in file > Double.MAX!");
         }
     }
 }
