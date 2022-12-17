@@ -9,14 +9,14 @@ public class SuppressedExample {
         readFile("src/main/resources/chapter7/lab7/text7.txt");
     }
 
-    private static void readFile(String filename) throws Exception {
+    private static void readFile(String filename) throws RuntimeException {
         Exception mainEx = null;
         FileReader reader = null;
         try {
             reader = new FileReader(filename);
             //some logic while throw exception
-            throw new RuntimeException();
-        } catch (RuntimeException ex) {
+            throw new IOException();
+        } catch (IOException ex) {
             mainEx = ex;
         } finally {
             if (reader != null) {
@@ -33,7 +33,7 @@ public class SuppressedExample {
                 }
             }
             if(mainEx != null){
-                throw mainEx;
+                throw new RuntimeException(mainEx);
             }
         }
     }

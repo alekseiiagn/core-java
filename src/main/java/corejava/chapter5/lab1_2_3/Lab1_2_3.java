@@ -34,10 +34,9 @@ public class Lab1_2_3 {
 
     private static double calculateSumOfNumbers(List<Double> numbers) {
         double sum = 0;
-        double lastSum = 0;
         for (double number : numbers) {
             sum += number;
-            if (lastSum > sum) {
+            if (sum == Double.POSITIVE_INFINITY || sum == Double.NEGATIVE_INFINITY) {
                 throw new RuntimeException("Sum of values > Double.MAX");
             }
         }

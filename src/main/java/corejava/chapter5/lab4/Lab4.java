@@ -49,10 +49,9 @@ public class Lab4 {
     }
 
     private static int calculateSumOfNumbers(List<Double> numbers) {
-        double lastSum = 0;
         for (double number : numbers) {
             result += number;
-            if(lastSum > result){
+            if (result == Double.POSITIVE_INFINITY || result == Double.NEGATIVE_INFINITY) {
                 return ERROR;
             }
         }

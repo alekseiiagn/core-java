@@ -18,14 +18,15 @@ public class Lab6 {
     }
 
     public static void firstVarious(String filepath) {
+        Exception mainEx = null;
         BufferedReader in = null;
         try {
             in = createBufferReaderForFilepath(filepath);
             //тут чтение
         } catch (IOException ex) {
-            System.err.println("Caught IOException: " + ex.getMessage());
+            mainEx = ex;
         } finally {
-            close(in);
+            close(mainEx, in);
         }
     }
 
@@ -33,13 +34,20 @@ public class Lab6 {
         return Files.newBufferedReader(Path.of(filepath), StandardCharsets.UTF_8);
     }
 
-    private static void close(Closeable in) {
+    private static void close(Exception mainEx, BufferedReader in) {
         if (in != null) {
             try {
                 in.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                if (mainEx != null) {
+                    mainEx.addSuppressed(e);
+                } else {
+                    mainEx = e;
+                }
             }
+        }
+        if (mainEx != null) {
+            throw new RuntimeException(mainEx);
         }
     }
 
