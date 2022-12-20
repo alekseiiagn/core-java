@@ -13,13 +13,19 @@ public class Main {
     static Random random = new Random();
 
     public static void main(String[] args) {
-        Library library = createRandomLibrary(random.nextInt(10));
+        Library library = new Library();
+        library.add(new Book("1", "11", Genre.ACTION));
+        System.out.println(library);
+        library.take("1");
+        System.out.println(library.authors());
+
+        Library library1 = createRandomLibrary(random.nextInt(10));
         System.out.println("SORT-1");
-        sortAndPrint(library, Comparator.comparing(Book::getName));
+        sortAndPrint(library1, Comparator.comparing(Book::getName));
         System.out.println("SORT-2");
-        sortAndPrint(library, Comparator.comparing(Book::getAuthor));
+        sortAndPrint(library1, Comparator.comparing(Book::getAuthor));
         System.out.println("SORT-3");
-        sortAndPrint(library, Comparator.comparing(Book::getGenre));
+        sortAndPrint(library1, Comparator.comparing(Book::getGenre));
     }
 
     private static Library createRandomLibrary(int size) {
