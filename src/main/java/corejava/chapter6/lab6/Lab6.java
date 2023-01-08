@@ -15,10 +15,13 @@ public class Lab6 {
     public static void main(String[] args) {
         List<Integer> in = createRandomArrayBySize(COUNT);
         List<Integer> out = createRandomArrayBySize(COUNT);
+        System.out.println(out);
+        System.out.println(in);
 
         addAllExtends(in, out);
-        addAllSuper(in, out);
+        System.out.println(in);
 
+        addAllSuper(in, out);
         System.out.println(in);
     }
 

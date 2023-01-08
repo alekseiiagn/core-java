@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Table<K, V> {
 
-    private List<Entry> list;
+    private final List<Entry> list;
 
     Table() {
         list = new ArrayList<>();
